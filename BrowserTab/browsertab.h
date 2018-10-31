@@ -14,22 +14,14 @@ public:
     explicit BrowserTab(QWidget *parent = nullptr);
     ~BrowserTab();
     QToolButton* addTabBtn();
-    QString showTabBarSize();
-    QString showTabPagSize();
 
 signals:
     void addTabClicked(); //see addTabBtn() fun
 
-protected:
-//    virtual void resizeEvent(QResizeEvent *e);
-//    virtual void tabInserted(int index);
-//    virtual void tabRemoved(int index);
-//virtual QSize tabSizeHint(int index) const;
-
 private:
     /*Child Widgets*/
     QToolButton *addTabButton;
-    BrowserTabBar *p_tabBar;
+    BrowserTabBar *bTabBar;
 };
 
 #endif // BROWSERTAB_H
