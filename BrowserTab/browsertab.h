@@ -2,7 +2,6 @@
 #define BROWSERTAB_H
 #pragma once
 #include <QTableWidget>
-#include "browsertabbar.h"
 
 class QToolButton;
 
@@ -18,10 +17,16 @@ public:
 signals:
     void addTabClicked(); //see addTabBtn() fun
 
+protected:
+    virtual void resizeEvent(QResizeEvent *event);
+    virtual void tabInserted(int index);
+    virtual void tabRemoved(int index);
+
 private:
     /*Child Widgets*/
     QToolButton *addTabButton;
-    BrowserTabBar *bTabBar;
+
+    void setTabBarSize();
 };
 
 #endif // BROWSERTAB_H

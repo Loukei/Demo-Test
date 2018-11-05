@@ -12,7 +12,7 @@ public:
 protected:
     virtual QSize tabSizeHint(int index) const;
     virtual QSize minimumSizeHint() const;
-    virtual void resizeEvent(QResizeEvent *e);
+    //virtual void resizeEvent(QResizeEvent *e);
 };
 
 #endif // BROWSERTABBAR_H

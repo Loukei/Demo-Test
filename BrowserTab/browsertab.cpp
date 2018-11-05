@@ -5,8 +5,6 @@ BrowserTab::BrowserTab(QWidget *parent):
     QTabWidget (parent)
 {
     addTabButton = nullptr;
-    bTabBar = new BrowserTabBar(this);
-    setTabBar(bTabBar);
     setMovable(true);
     setTabsClosable(true);
 }
@@ -30,3 +28,40 @@ QToolButton* BrowserTab::addTabBtn()
     }
     return addTabButton;
 }
+
+void BrowserTab::resizeEvent(QResizeEvent *event)
+{
+    QTabWidget::resizeEvent(event);
+    setTabBarSize();
+}
+
+void BrowserTab::tabInserted(int index)
+{
+    QTabWidget::tabInserted(index);
+    setTabBarSize();
+}
+
+void BrowserTab::tabRemoved(int index)
+{
+    QTabWidget::tabRemoved(index);
+    setTabBarSize();
+}
+
+void BrowserTab::setTabBarSize()
+{
+//    int minWidth = this->minimumWidth();
+    int minWidth = 200;
+    int blanksize = 40;
+    int tabWidth = int ((width() - blanksize) / count());
+    if(tabWidth < minWidth)
+    {
+        tabWidth = minWidth;
+    }
+
+    setStyleSheet( styleSheet() +
+                  "QTabBar::tab {""width: " +
+                  QString::number(tabWidth) +
+                  "px; }" );
+}
+
+

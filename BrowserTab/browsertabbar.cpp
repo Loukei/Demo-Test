@@ -24,7 +24,7 @@ QSize BrowserTabBar::minimumSizeHint() const
     return QSize(200,size.height());
 }
 
-void BrowserTabBar::resizeEvent(QResizeEvent *e)
-{
-    QTabBar::resizeEvent(e);
-}
+//void BrowserTabBar::resizeEvent(QResizeEvent *e)
+//{
+//    QTabBar::resizeEvent(e);
+//}
