@@ -4,7 +4,6 @@
 #include <QTableWidget>
 
 class QToolButton;
-
 class BrowserTab : public QTabWidget
 {
     Q_OBJECT
@@ -12,7 +11,8 @@ class BrowserTab : public QTabWidget
 public:
     explicit BrowserTab(QWidget *parent = nullptr);
     ~BrowserTab();
-    QToolButton* addTabBtn();
+    QToolButton& addTabBtn();
+    void setTabBarExpand(bool boolen);
 
 signals:
     void addTabClicked(); //see addTabBtn() fun
@@ -26,7 +26,11 @@ private:
     /*Child Widgets*/
     QToolButton *addTabButton;
 
-    void setTabBarSize();
+    /*Property*/
+    bool tabBarExpand;
+
+    void averageTabBarSize();
+    void moveAddTabButon();
 };
 
 #endif // BROWSERTAB_H

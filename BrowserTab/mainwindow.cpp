@@ -18,13 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     tabwidget->addTabBtn();
     connect(tabwidget,&BrowserTab::addTabClicked,this,&MainWindow::newTab);
     connect(tabwidget,&BrowserTab::tabCloseRequested,this,&MainWindow::closeTab);
-
-    /*Error usage*/
-//    QToolButton *button = tabwidget->addTabBtn();
-//    delete button;
-//    QTabBar *tb = tabwidget->tabBar();
-//    delete tb;
-
     setCentralWidget(tabwidget);
 }
 
